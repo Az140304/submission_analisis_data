@@ -1,4 +1,4 @@
-# Proyek Analisis Data : E-Commerce Dataser ✨
+# Proyek Analisis Data : E-Commerce Dataset 
 
 ## Setup Environment - Anaconda
 ```
