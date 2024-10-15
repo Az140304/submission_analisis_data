@@ -1,8 +1,8 @@
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import datetime as dt
 import streamlit as st
+
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 all_data = pd.read_csv("../data/all_data.csv") 
 order_payments = pd.read_csv("../data/olist_order_payments_dataset.csv")
@@ -18,12 +18,12 @@ if menu == "Home" or menu is None:
     st.write(f"**ID DIcoding**  : afharyo")
 
     st.header("Library yang Digunakan")
-    st.markdown("- numpy")
-    st.markdown("- pandas")
-    st.markdown("- matplotlib")
-    st.markdown("- datetime")
+    st.markdown("* numpy")
+    st.markdown("* pandas")
+    st.markdown("* matplotlib")
+    st.markdown("* datetime")
 
-    st.header("Dataset yang Digunakan")
+    st.header("Sumber Dataset")
 
     d1, d2, d3 = st.tabs(["orders", "order_payments", "customers"])
 
@@ -42,8 +42,8 @@ if menu == "Home" or menu is None:
     st.caption('Copyright (c) 2024')
 elif menu == "Pertanyaan Satu":
 
-    st.header("1. Kota manakah dengan total pembelian terbesar di platform Olist pada tahun 2018 ?")
-    st.subheader("Hasil Visualisasi Data")
+    st.title("1. Kota manakah dengan total pembelian terbesar di platform Olist pada tahun 2018 ?")
+    st.header("Hasil Visualisasi Data")
     all_data['order_approved_at'] = pd.to_datetime(all_data['order_approved_at'])
 
     df1 = all_data[all_data['order_approved_at'].dt.year == 2018]
@@ -69,8 +69,7 @@ elif menu == "Pertanyaan Satu":
     plt.show()
     st.pyplot(plt.show())
 
-    st.subheader("Kesimpulan")
-    st.write("Pada tahun 2018, kota dengan total pembelian terbesar ada di kota Sao Paolo (SP). Kemudian, kota dengan total pembelian terkecil ada di kota Acre (AC) yang jumlahnya berdekatan dengan kota Roraima (RR)")
+    st.caption('Copyright (c) 2024')
 
 elif menu == "Pertanyaan Dua":
     st.header("2. Bagaimana tren aktivitas pembelian barang pada tahun 2017 dari bulan ke bulan?")
@@ -91,7 +90,11 @@ elif menu == "Pertanyaan Dua":
     plt.tight_layout()
     st.pyplot(plt.show())
 
-    st.subheader("Kesimpulan")
+    st.caption('Copyright (c) 2024')
 
-    st.write("Dari bulan ke bulan, platform Olist menunjukkan tren peningkatan dalam halnya jumlah aktivitas pembelian barang pada tahun 2017. Menjelang tahun 2018, aktivitas pembelian sempat mencapai puncaknya.")
+elif menu == "Kesimpulan":
+    st.header("Kesimpulan")
+    st.write("* Diketahui bahwa waktu lama pengiriman memiliki pengaruh terkait total pengiriman pada tiap kota. Sebagai fakta,  kota Sao Paulo (SP) yang memiliki total pembelian terbesar pada tahun 2018 di platform Olist mempunyai waktu pengiriman tercepat (+- 5 hari). Sebaliknya, diketahui kesenjangan signifikan antara SP dan kota-kota lain mengungkapkan potensi ekspansi pasar ke wilayah-wilayah dengan pembelian rendah, seperti Acre (AC) dan Roraima (RR). Dari hasil analisis data,  maka dapat disarankan untuk mempertahankan dan meningkatkan layanan di Sao Paulo dan menerapkan faktor kesuksesan pada kota lain. Kemudian,  jaringan logistik perlu dioptimalkan, terutama pada  terutama di kota-kota dengan waktu pengiriman yang lebih lambat.")
+    st.write("* Berdasarkan hasil analisis data, telah ditemukan pola yaitu adanya puncak aktivitas pembelian di platform Olist pada bulan Liburan (Desember - Januari). Aktivitas pembelian menunjukkan peningkatan konsisten sepanjang tahun 2017, dengan puncak terjadi menjelang akhir tahun, kemungkinan terkait musim liburan. Terlebih lagi, rata-rata jumlah penghasilan dari aktivitas pembelian pelanggan juga mengalami puncak pada bulan Libur. Hal ini dikarenakan pelanggan memiliki waktu yang luang sehingga memiliki kesempatan untuk mencari dan membeli barang. Dari Tren ini dapat dimanfaatkan untuk menerapkan strategi yang optimal pada akhir tahun untuk meningkatkan jumlah aktivitas pembelian pada platform tersebut. Strategi tersebut meliputi memberikan diskon atau promosi pada akhir Tahun sehingga pelanggan lebih tertarik untuk membeli barang dengan harga yang lebih murah. ")
+
     st.caption('Copyright (c) 2024')
