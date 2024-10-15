@@ -4,13 +4,13 @@ import matplotlib.pyplot as plt
 import datetime as dt
 import streamlit as st
 
-all_data = pd.read_csv("all_data.csv") 
+all_data = pd.read_csv("../data/all_data.csv") 
 order_payments = pd.read_csv("../data/olist_order_payments_dataset.csv")
 orders = pd.read_csv("../data/olist_orders_dataset.csv")
 customers = pd.read_csv("../data/olist_customers_dataset.csv")
 
 st.sidebar.title("Menu Navigasi")
-menu = st.sidebar.selectbox("Menu:", ["Home", "Pertanyaan Satu", "Pertanyaan Dua"])
+menu = st.sidebar.selectbox("Menu:", ["Home", "Pertanyaan Satu", "Pertanyaan Dua", "Kesimpulan"])
 if menu == "Home" or menu is None:
     st.title('Projek Analisis Data : E-Commerce Public Dataset ')
     st.write(f"**Nama**  : Azhar Fikri H.")
