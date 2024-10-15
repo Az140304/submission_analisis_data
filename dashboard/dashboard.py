@@ -2,8 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
-
 all_data = pd.read_csv("./data/all_data.csv") 
 order_payments = pd.read_csv("./data/olist_order_payments_dataset.csv")
 orders = pd.read_csv("./data/olist_orders_dataset.csv")
